@@ -35,6 +35,11 @@ app.get('/api/v1/health', (req, res) => {
   res.json({ status: 'OK', message: 'EduFlow API is running' });
 });
 
+// Root URL handler so the browser doesn't show "Cannot GET /"
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to the EduFlow API</h1><p>The backend is running perfectly! Mobile app should connect to /api/v1</p>');
+});
+
 // Error handler
 app.use(errorHandler);
 
